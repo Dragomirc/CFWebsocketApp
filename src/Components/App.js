@@ -1,28 +1,9 @@
-"use strict";
 import React, { Component } from "react";
-
 import TradeList from "./TradeList";
-import WebSocket from "ws";
-// import SockJS from "sockjs-client";
-// import io from "socket.io-client";
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
-
-    // const sock = new SockJS("https://www.cryptofacilities.com/ws/v1");
-    // sock.onopen = () => {
-    //   console.log("coonnection open");
-    // };
-    //
-    // sock.onmessage = e => {
-    //   console.log("message received", e.data);
-    //   // return store.dispatch(actions.receive(e.data));
-    // };
-    //
-    // sock.onclose = () => {
-    //   console.log("close");
-    // };
     this.state = {
       tradeList: []
     };
@@ -32,7 +13,7 @@ class App extends Component {
     this.ws = new WebSocket("wss://www.cryptofacilities.com/ws/v1");
 
     this.ws.onopen = () => {
-      console.log("coonnection open");
+      console.log("coonnection open ");
       this.ws.send(
         JSON.stringify({
           event: "subscribe",
@@ -43,12 +24,16 @@ class App extends Component {
     };
 
     this.ws.onmessage = e => {
-      console.log("message received", e.data);
-      // this.setState({ tradeList: [...this.state.tradeList, e.data] });
+      let newData = JSON.parse(e.data);
+      if (newData.trades) {
+        this.setState({
+          tradeList: [...this.state.tradeList, ...newData.trades]
+        });
+      }
     };
 
     this.ws.onerror = err => {
-      console.log("Fluffy error", err);
+      console.log("There was an error connecting to the WebSocket", err);
     };
   }
 
@@ -59,5 +44,3 @@ class App extends Component {
     return <TradeList tradeList={this.state.tradeList} />;
   }
 }
-
-export default App;

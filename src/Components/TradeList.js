@@ -1,13 +1,16 @@
 import React, { Component } from "react";
+import { v4 } from "uuid";
 
 export default class TradeList extends Component {
-  renderTrades = ({ product_id, qty, price }) => (
-    <tr>
-      <td>{product_id}</td>
-      <td>{qty}</td>
-      <td>{price}</td>
-    </tr>
-  );
+  renderTrades = ({ product_id, qty, price }) => {
+    return (
+      <tr key={v4()}>
+        <td>{product_id}</td>
+        <td>{qty}</td>
+        <td>{price}</td>
+      </tr>
+    );
+  };
   render() {
     return (
       <table>

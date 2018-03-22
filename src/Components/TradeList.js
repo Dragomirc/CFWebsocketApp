@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { v4 } from "uuid";
 
 export default class TradeList extends Component {
-  renderTrades = ({ product_id, qty, price }) => {
+  renderTrades = ({ product_id, qty, price, time }) => {
     return (
       <tr key={v4()}>
         <td>{product_id}</td>
         <td>{qty}</td>
         <td>{price}</td>
+        <td>{time}</td>
       </tr>
     );
   };
@@ -26,3 +28,7 @@ export default class TradeList extends Component {
     );
   }
 }
+
+TradeList.propsTypes = {
+  tradeList: PropTypes.array
+};

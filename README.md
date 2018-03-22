@@ -1,10 +1,10 @@
 ## CFWebSocketApp
 
-Deployed on: (https://dragomirc.github.io/CFWebsocketApp/)
+Deployed [here](https://dragomirc.github.io/CFWebsocketApp/)
 
-A real time web application which displays the trades, throught native websockets.
+A real-time web application which displays the trades, through native WebSockets.
 
-The list of trades is updated continuasly and always dispalyed in descending order based on the time property.
+The list of trades is updated continuously and always displayed in descending order based on the time property.
 
 ### Instructions on how to run the project
 
@@ -15,6 +15,6 @@ The list of trades is updated continuasly and always dispalyed in descending ord
 
 ### Tech stack
 
-React
-SCSS
+React,
+SCSS,
 Jest(testing)

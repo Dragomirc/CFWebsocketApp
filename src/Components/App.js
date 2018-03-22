@@ -7,13 +7,13 @@ export default class App extends Component {
     this.state = {
       tradeList: []
     };
-    this.timeoutID = 0;
+
     this.ws = new WebSocket("wss://www.cryptofacilities.com/ws/v1");
   }
 
   componentDidMount() {
     this.ws.onopen = () => {
-      // console.log("coonnection open ");
+      console.log("coonnection open ");
       this.ws.send(
         JSON.stringify({
           event: "subscribe",
@@ -46,7 +46,7 @@ export default class App extends Component {
     this.ws.onclose = e => {
       console.log("closed reason", e);
       if (e.code === 1006) {
-        console.log("The socket was cl0sed abnormaly");
+        console.log("The socket was closed abnormaly");
       }
     };
   }

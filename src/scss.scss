@@ -1,0 +1,48 @@
+@import "reset";
+
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+$secondary-color: #ddd;
+$header-color: #4caf50;
+
+body {
+  font-family: $font-stack;
+  color: $primary-color;
+}
+
+table {
+  border-collapse: collapse;
+  width: 70%;
+  margin: 0 auto;
+
+  %message-shared {
+    border: 1px solid $secondary-color;
+    padding: 0.5rem;
+  }
+  td {
+    @extend %message-shared;
+  }
+
+  th {
+    @extend %message-shared;
+    padding: 0.7rem;
+    text-align: left;
+    background-color: $header-color;
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: $secondary-color;
+  }
+}
+
+$breakpoint-tablet: 768px;
+@media (min-width: $breakpoint-tablet) {
+  table {
+    width: 100 v;
+  }
+}

@@ -3,19 +3,18 @@ import PropTypes from "prop-types";
 import { v4 } from "uuid";
 
 export default class TradeList extends Component {
-  renderTrades = ({ product_id, qty, price, time }) => {
+  renderTrades = ({ product_id, qty, price }) => {
     return (
       <tr key={v4()}>
         <td>{product_id}</td>
         <td>{qty}</td>
         <td>{price}</td>
-        <td>{time}</td>
       </tr>
     );
   };
   render() {
     return (
-      <table>
+      <table className="table">
         <thead>
           <tr>
             <th>Product ID</th>

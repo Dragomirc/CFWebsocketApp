@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { v4 } from "uuid";
+import _ from "lodash";
 
 export default class TradeList extends Component {
   renderTrades = ({ product_id, qty, price }) => {
@@ -22,7 +23,11 @@ export default class TradeList extends Component {
             <th>Price</th>
           </tr>
         </thead>
-        <tbody>{this.props.tradeList.map(this.renderTrades)}</tbody>
+        <tbody>
+          {_.orderBy(this.props.tradeList, ["time"], ["desc"]).map(
+            this.renderTrades
+          )}
+        </tbody>
       </table>
     );
   }

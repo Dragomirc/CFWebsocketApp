@@ -9,7 +9,7 @@ The list of trades is updated continuously and always displayed in descending or
 ### Instructions on how to run the project
 
 1. `git clone https://github.com/Dragomirc/CFWebsocketApp.git`
-2. `cd CFWebsocketApp/my-app`
+2. `cd CFWebsocketApp/`
 3. `npm i`
 4. `npm start`
 

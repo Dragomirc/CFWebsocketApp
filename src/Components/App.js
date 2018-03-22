@@ -24,7 +24,6 @@ export default class App extends Component {
     };
 
     this.ws.onmessage = e => {
-      console.log(e.data);
       let newData = JSON.parse(e.data);
       if (newData.trades) {
         this.setState({
@@ -44,9 +43,8 @@ export default class App extends Component {
     };
 
     this.ws.onclose = e => {
-      console.log("closed reason", e);
       if (e.code === 1006) {
-        console.log("The socket was closed abnormaly");
+        console.log("The socket was closed abnormaly with code 1006");
       }
     };
   }

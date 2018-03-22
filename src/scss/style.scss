@@ -3,7 +3,8 @@
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
 $secondary-color: #ddd;
-$header-color: #4caf50;
+$header-color: #00baff;
+$breakpoint-tablet: 768px;
 
 body {
   font-family: $font-stack;
@@ -11,6 +12,9 @@ body {
 }
 
 table {
+  @media (max-width: $breakpoint-tablet) {
+    width: 100vw;
+  }
   border-collapse: collapse;
   width: 70%;
   margin: 0 auto;
@@ -25,6 +29,7 @@ table {
 
   th {
     @extend %message-shared;
+
     padding: 0.7rem;
     text-align: left;
     background-color: $header-color;
@@ -37,12 +42,5 @@ table {
 
   tr:hover {
     background-color: $secondary-color;
-  }
-}
-
-$breakpoint-tablet: 768px;
-@media (min-width: $breakpoint-tablet) {
-  table {
-    width: 100 v;
   }
 }

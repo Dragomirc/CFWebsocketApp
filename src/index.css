@@ -9,15 +9,18 @@ body {
 
 table {
   border-collapse: collapse;
-  width: 80%;
+  width: 70%;
   margin: 0 auto; }
+  @media (max-width: 768px) {
+    table {
+      width: 100vw; } }
   table td, table th {
     border: 1px solid #ddd;
     padding: 0.5rem; }
   table th {
     padding: 0.7rem;
     text-align: left;
-    background-color: #4caf50;
+    background-color: #00baff;
     color: white; }
   table tr:nth-child(even) {
     background-color: #f2f2f2; }
